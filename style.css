@@ -1,0 +1,31 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #fbf7ff;
+  font-family: Futura;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 60px;
+  background-color: #104373;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  text-align: center;
+  line-height: 60px;
+  user-select: none;
+}
+
+.navLink {
+  color: #62cbe7;
+  text-decoration: none;
+  font-size: 18px;
+  letter-spacing: 2px;
+}
+
+.navLink:hover {
+  color: white;
+  transition: color 0.5s;
+}
