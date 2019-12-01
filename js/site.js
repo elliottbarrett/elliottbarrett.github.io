@@ -38,11 +38,11 @@ function animate() {
     const t = new Date().getTime();
     flake.rotation.x += 0.01;
     flake.rotation.y += 0.02;
-    flake.position.y = 0.5 * Math.sin((index/NUM_SNOWFLAKES * 2 * Math.PI * t/3000))
-    let color = new THREE.Color(index/NUM_SNOWFLAKES, 0.4, index/NUM_SNOWFLAKES);
+    flake.position.y = 0.5 * Math.sin(((index + 1)/NUM_SNOWFLAKES * 2 * Math.PI * t/3000))
+    let color = new THREE.Color((index + 1)/NUM_SNOWFLAKES, 0.4, index/NUM_SNOWFLAKES);
     // color = color.multiplyScalar(0.5 - 0.5 * Math.sin((index/NUM_SNOWFLAKES * 2 * Math.PI * t/1000)))
-    const r = 0.5 - 0.5 * Math.sin((index/NUM_SNOWFLAKES * 2 * Math.PI * t/1000));
-    const g = 0.5 - 0.5 * Math.cos((index/NUM_SNOWFLAKES * 2 * Math.PI * t/1000))
+    const r = 0.5 - 0.5 * Math.sin(((index + 1)/NUM_SNOWFLAKES * 2 * Math.PI * t/1000));
+    const g = 0.5 - 0.5 * Math.cos(((index + 1)/NUM_SNOWFLAKES * 2 * Math.PI * t/1000))
     color = new THREE.Color(r, g, 0.6);
     flake.material.color = color;
   })
