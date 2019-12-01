@@ -46,6 +46,9 @@ function animate() {
     flake.rotation.x += 0.01;
     flake.rotation.y += 0.02;
     flake.position.y = 0.5 * Math.sin((index/NUM_SNOWFLAKES * 2 * Math.PI * t/3000))
+    let color = new THREE.Color(index/NUM_SNOWFLAKES, 0.4, index/NUM_SNOWFLAKES);
+    color = color.multiplyScalar(0.5 - 0.5 * Math.sin((index/NUM_SNOWFLAKES * 2 * Math.PI * t/3000)))
+    flake.material.color = color;
   })
 
   renderer.render( scene, camera );
