@@ -1,6 +1,6 @@
 var camera, scene, renderer;
 
-const NUM_SNOWFLAKES = 60;
+const NUM_SNOWFLAKES = 80;
 const snowflakes = [];
 
 function init() {
