@@ -1,5 +1,4 @@
 var camera, scene, renderer;
-var geometry, material, mesh;
 
 const NUM_SNOWFLAKES = 60;
 const snowflakes = [];
@@ -10,14 +9,9 @@ function init() {
 
   scene = new THREE.Scene();
 
-  geometry = new THREE.BoxGeometry( 0.2, 0.2, 0.2 );
-  material = new THREE.MeshNormalMaterial();
-
-  mesh = new THREE.Mesh( geometry, material );
-  // scene.add( mesh );
-
   for (let i=0; i < NUM_SNOWFLAKES; i++) {
-    const snowflakeGeometry = new THREE.PlaneGeometry(0.1, 0.1);
+    // const snowflakeGeometry = new THREE.PlaneGeometry(0.1, 0.1);
+    const snowflakeGeometry = new THREE.PlaneGeometry(0.08, 0.08);
     const snowflakeMaterial = new THREE.MeshBasicMaterial({
       color: new THREE.Color(i/NUM_SNOWFLAKES, 0.4, 1 - i/NUM_SNOWFLAKES),
       side: THREE.DoubleSide
@@ -26,6 +20,8 @@ function init() {
     snowflakePlane.position.x = 3 * i/NUM_SNOWFLAKES - 1.5;
     // snowflakePlane.position.z = i/NUM_SNOWFLAKES - 1;
     snowflakePlane.rotation.x = i/NUM_SNOWFLAKES;
+    snowflakePlane.rotation.y = i/NUM_SNOWFLAKES;
+    snowflakePlane.rotation.z = i/NUM_SNOWFLAKES;
     snowflakes.push(snowflakePlane);
     scene.add(snowflakePlane);
   }
@@ -38,16 +34,16 @@ function init() {
 function animate() {
   requestAnimationFrame( animate );
 
-  mesh.rotation.x += 0.01;
-  mesh.rotation.y += 0.02;
-
   snowflakes.forEach((flake, index) => {
     const t = new Date().getTime();
     flake.rotation.x += 0.01;
     flake.rotation.y += 0.02;
     flake.position.y = 0.5 * Math.sin((index/NUM_SNOWFLAKES * 2 * Math.PI * t/3000))
     let color = new THREE.Color(index/NUM_SNOWFLAKES, 0.4, index/NUM_SNOWFLAKES);
-    color = color.multiplyScalar(0.5 - 0.5 * Math.sin((index/NUM_SNOWFLAKES * 2 * Math.PI * t/1000)))
+    // color = color.multiplyScalar(0.5 - 0.5 * Math.sin((index/NUM_SNOWFLAKES * 2 * Math.PI * t/1000)))
+    const r = 0.5 - 0.5 * Math.sin((index/NUM_SNOWFLAKES * 2 * Math.PI * t/1000));
+    const g = 0.5 - 0.5 * Math.cos((index/NUM_SNOWFLAKES * 2 * Math.PI * t/1000))
+    color = new THREE.Color(r, g, 0.6);
     flake.material.color = color;
   })
 
