@@ -23,6 +23,7 @@ body {
   text-decoration: none;
   font-size: 18px;
   letter-spacing: 2px;
+  transition: color 0.5s;
 }
 
 .navLink:hover {
