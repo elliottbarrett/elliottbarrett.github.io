@@ -3,6 +3,8 @@ body {
   padding: 0;
   background-color: #fbf7ff;
   font-family: Futura;
+  background-color: black;
+  padding-top: 90px;
 }
 
 .header {
@@ -29,4 +31,15 @@ body {
 .navLink:hover {
   color: white;
   transition: color 0.5s;
+}
+
+.imageContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.flowImage {
+  max-height: 600px;
+  margin: 0 auto;
+  margin-bottom: 30px;
 }
